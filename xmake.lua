@@ -12,7 +12,7 @@ set_warnings("all")
 
 add_rules("plugin.compile_commands.autoupdate", {outputdir = ".", lsp = "clangd"})
 
-add_repositories("local-repo .")
+add_repositories("local-repo local-repo", {rootdir = os.scriptdir()})
 add_requires("sherpa-onnx 2.0.1", {configs = {shared = true}})
 option("moonshine_sdk")
     set_showmenu(true)
