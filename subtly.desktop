@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=subtly
+Comment=Live captions for system audio
+Exec=subtly
+Icon=subtly
+Categories=Utility;Accessibility;
+X-KDE-Wayland-Interfaces=zwlr_layer_shell_v1

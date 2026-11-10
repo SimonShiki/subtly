@@ -1,0 +1,84 @@
+name: subtly${SUBTLY_PACKAGE_SUFFIX}
+arch: amd64
+platform: linux
+version: ${SUBTLY_VERSION}
+release: '1'
+section: sound
+priority: optional
+maintainer: SimonShiki <sinangentoo@gmail.com>
+description: |
+  On-device live captions for Linux Wayland.
+  Transcribes system audio or the microphone and displays a floating caption bar.
+  Speech models can be downloaded in Settings.
+homepage: https://github.com/SimonShiki/subtly
+license: MIT
+conflicts:
+  - subtly-git
+  - ${SUBTLY_PACKAGE_CONFLICT}
+provides:
+  - ${SUBTLY_PACKAGE_PROVIDES}
+
+contents:
+  - src: dist/root/usr/
+    dst: /usr
+    type: tree
+  - src: LICENSE
+    dst: /usr/share/doc/subtly/copyright
+    packager: deb
+
+overrides:
+  deb:
+    depends:
+      - libc6 (>= 2.41)
+      - libgcc-s1
+      - libgomp1
+      - libstdc++6 (>= 14)
+      - liblayershellqtinterface6 (>= 6.3.4)
+      - libpipewire-0.3-0t64
+      - libqt6core6t64 (>= 6.8.2)
+      - libqt6gui6 (>= 6.8.2)
+      - libqt6network6 (>= 6.8.2)
+      - libqt6qml6 (>= 6.8.2)
+      - libqt6quick6 (>= 6.8.2)
+      - libqt6quickcontrols2-6 (>= 6.8.2)
+      - libqt6svg6 (>= 6.8.2)
+      - libqt6widgets6 (>= 6.8.2)
+      - pipewire
+      - qt6-wayland
+      - qml6-module-qtcore
+      - qml6-module-qtqml-workerscript
+      - qml6-module-qtquick
+      - qml6-module-qtquick-window
+      - qml6-module-qtquick-controls
+      - qml6-module-qtquick-layouts
+      - qml6-module-qtquick-templates
+  rpm:
+    depends:
+      - glibc
+      - libgcc
+      - libgomp
+      - libstdc++
+      - layer-shell-qt
+      - pipewire
+      - qt6-qtbase
+      - qt6-qtdeclarative
+      - qt6-qtsvg
+      - qt6-qtwayland
+  archlinux:
+    depends:
+      - gcc-libs
+      - glibc
+      - layer-shell-qt
+      - pipewire
+      - qt6-base
+      - qt6-declarative
+      - qt6-svg
+      - qt6-wayland
+
+rpm:
+  summary: On-device live captions for Linux Wayland
+  group: Applications/Multimedia
+  packager: SimonShiki <sinangentoo@gmail.com>
+
+archlinux:
+  packager: SimonShiki <sinangentoo@gmail.com>

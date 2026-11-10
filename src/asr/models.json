@@ -1,0 +1,226 @@
+[
+  {
+    "id": "moonshine-tiny-streaming-en",
+    "label": "Moonshine Tiny Streaming — English",
+    "language": "en",
+    "base_url": "https://download.moonshine.ai/model/tiny-streaming-en/quantized_26_11_02",
+    "files": [
+      {
+        "name": "adapter.ort",
+        "size": 1319616,
+        "checksum": "8tL9VQ=="
+      },
+      {
+        "name": "cross_kv.ort",
+        "size": 1287504,
+        "checksum": "nwGoTw=="
+      },
+      {
+        "name": "decoder_kv.ort",
+        "size": 32748720,
+        "checksum": "rpn9LA=="
+      },
+      {
+        "name": "encoder.ort",
+        "size": 7675392,
+        "checksum": "9j4G6g=="
+      },
+      {
+        "name": "frontend.model.ort",
+        "size": 23392,
+        "checksum": "AxTn9Q=="
+      },
+      {
+        "name": "frontend.weights.ort",
+        "size": 2093416,
+        "checksum": "lNoOfg=="
+      },
+      {
+        "name": "streaming_config.json",
+        "size": 509,
+        "checksum": "HGL0Ug=="
+      },
+      {
+        "name": "tokenizer.bin",
+        "size": 249974,
+        "checksum": "B7s10Q=="
+      }
+    ]
+  },
+  {
+    "id": "moonshine-tiny-streaming-ja",
+    "label": "Moonshine Tiny Streaming — Japanese",
+    "language": "ja",
+    "base_url": "https://download.moonshine.ai/model/tiny-streaming-ja/quantized_26_08_23",
+    "files": [
+      {
+        "name": "adapter.ort",
+        "size": 1318472,
+        "checksum": "obzOjg=="
+      },
+      {
+        "name": "cross_kv.ort",
+        "size": 1288120,
+        "checksum": "gbYCsw=="
+      },
+      {
+        "name": "decoder_kv.ort",
+        "size": 19717336,
+        "checksum": "Mc/YqQ=="
+      },
+      {
+        "name": "encoder.ort",
+        "size": 7772792,
+        "checksum": "ZS0TPg=="
+      },
+      {
+        "name": "frontend.model.ort",
+        "size": 27608,
+        "checksum": "BTpcfg=="
+      },
+      {
+        "name": "frontend.weights.ort",
+        "size": 2093288,
+        "checksum": "T4l/3Q=="
+      },
+      {
+        "name": "streaming_config.json",
+        "size": 509,
+        "checksum": "wH/VeA=="
+      },
+      {
+        "name": "tokenizer.bin",
+        "size": 101836,
+        "checksum": "M94Ogg=="
+      }
+    ]
+  },
+  {
+    "id": "moonshine-tiny-streaming-zh",
+    "label": "Moonshine Tiny Streaming — Mandarin Chinese",
+    "language": "zh",
+    "base_url": "https://download.moonshine.ai/model/tiny-streaming-zh/quantized_26_08_24",
+    "files": [
+      {
+        "name": "adapter.ort",
+        "size": 1318472,
+        "checksum": "hr7j6g=="
+      },
+      {
+        "name": "cross_kv.ort",
+        "size": 1288120,
+        "checksum": "fiGyHw=="
+      },
+      {
+        "name": "decoder_kv.ort",
+        "size": 19717336,
+        "checksum": "rr9O2A=="
+      },
+      {
+        "name": "encoder.ort",
+        "size": 7772792,
+        "checksum": "BHPY3w=="
+      },
+      {
+        "name": "frontend.model.ort",
+        "size": 27608,
+        "checksum": "4gF+xg=="
+      },
+      {
+        "name": "frontend.weights.ort",
+        "size": 2090728,
+        "checksum": "Kv1kYQ=="
+      },
+      {
+        "name": "streaming_config.json",
+        "size": 509,
+        "checksum": "wH/VeA=="
+      },
+      {
+        "name": "tokenizer.bin",
+        "size": 74587,
+        "checksum": "nQJxPQ=="
+      }
+    ]
+  },
+  {
+    "id": "sherpa-onnx-streaming-zipformer-en-2023-06-26",
+    "label": "Zipformer — English",
+    "base_url": "https://huggingface.co/csukuangfj/sherpa-onnx-streaming-zipformer-en-2023-06-26/resolve/672fbf1b30579d6585301139bb363f42a0ad4a24",
+    "files": [
+      {
+        "name": "decoder-epoch-99-avg-1-chunk-16-left-128.int8.onnx",
+        "size": 1307236,
+        "sha256": "98da299f471e38bb4e1a8df579b8cc9122d6039576a77e357b3c60f17dd83b02"
+      },
+      {
+        "name": "encoder-epoch-99-avg-1-chunk-16-left-128.int8.onnx",
+        "size": 71083163,
+        "sha256": "563fde436d16cf7607cf408cd6b30909819d03162652ef389c2450ced3f45ac1"
+      },
+      {
+        "name": "joiner-epoch-99-avg-1-chunk-16-left-128.int8.onnx",
+        "size": 259335,
+        "sha256": "d944208d660d67c8d72cd2acaeac971fa5ceb8c80e76c1968148846fedd6e297"
+      },
+      {
+        "name": "tokens.txt",
+        "size": 5048,
+        "sha256": "49e3c2646595fd907228b3c6787069658f67b17377c60aeb8619c4551b2316fb"
+      }
+    ]
+  },
+  {
+    "id": "sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20",
+    "label": "Zipformer — Chinese + English",
+    "base_url": "https://huggingface.co/csukuangfj/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/resolve/98590b7ed6443e77b714204da2757d75e1a642f4",
+    "files": [
+      {
+        "name": "decoder-epoch-99-avg-1.int8.onnx",
+        "size": 13091040,
+        "sha256": "1a70c593d71e53f023f5f55b0b4cfff5055abb786ee3992e5f63dc2e273cc4fa"
+      },
+      {
+        "name": "encoder-epoch-99-avg-1.int8.onnx",
+        "size": 181895032,
+        "sha256": "8fa764187a261844f859d7143ebaa563af5d10adfece4c18a8f414c88cba2a9b"
+      },
+      {
+        "name": "joiner-epoch-99-avg-1.int8.onnx",
+        "size": 3228404,
+        "sha256": "1ed689c5ed19dbaa725d9d191bb4822b5f4855a39e1ffd28cbc1f340d25b2ee0"
+      },
+      {
+        "name": "tokens.txt",
+        "size": 56317,
+        "sha256": "a8e0e4ec53810e433789b54a5c0134a7eaa2ffca595a6334d54c00da858841d3"
+      }
+    ]
+  },
+  {
+    "id": "nemotron-speech-streaming-en-0.6b",
+    "label": "Nemotron Speech Streaming — English",
+    "base_url": "https://huggingface.co/nvidia/nemotron-speech-streaming-en-0.6b/resolve/ebe59e5a817142986528bbbee5dba8db7b38ed50",
+    "files": [
+      {
+        "name": "nemotron-speech-streaming-en-0.6b.q8_0.gguf",
+        "size": 699872960,
+        "sha256": "d9a01898d2a611c8764e23a1c2f45e70bbd5a425dc4de93692ac951dd603812d"
+      }
+    ],
+    "backend": "nemotron"
+  },
+  {
+    "id": "nemotron-3.5-asr-streaming-0.6b",
+    "label": "Nemotron 3.5 ASR Streaming — Multilingual",
+    "base_url": "https://huggingface.co/nvidia/nemotron-3.5-asr-streaming-0.6b/resolve/ea30d66debe3740a08b573244286791d423d6b3e",
+    "files": [
+      {
+        "name": "nemotron-3.5-asr-streaming-0.6b.q8_0.gguf",
+        "size": 742090464,
+        "sha256": "3fc991d3badad7277c11030a7519832cddaf2057aafed6d4b25147e953a070b1"
+      }
+    ],
+    "backend": "nemotron"
+  }
+]

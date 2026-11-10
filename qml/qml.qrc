@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/qml">
+        <file>Main.qml</file>
+        <file>CaptionBar.qml</file>
+        <file>Settings.qml</file>
+    </qresource>
+    <qresource prefix="/">
+        <file alias="models.json">../src/asr/models.json</file>
+    </qresource>
+    <qresource prefix="/icons">
+        <file alias="subtly.svg">icons/subtly.svg</file>
+        <file alias="settings.svg">icons/settings.svg</file>
+        <file alias="pause.svg">icons/pause.svg</file>
+        <file alias="play.svg">icons/play.svg</file>
+        <file alias="lock.svg">icons/lock.svg</file>
+    </qresource>
+</RCC>

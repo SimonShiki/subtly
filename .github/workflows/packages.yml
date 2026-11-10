@@ -1,0 +1,93 @@
+name: Linux packages
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build ${{ matrix.package_name }} (${{ matrix.format }})
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        format: [deb, rpm, archlinux]
+        nemotron: ['n', 'y']
+        include:
+          - nemotron: 'n'
+            package_name: subtly
+            package_suffix: ''
+            package_conflict: subtly-nemotron
+            package_provides: ''
+          - nemotron: 'y'
+            package_name: subtly-nemotron
+            package_suffix: -nemotron
+            package_conflict: subtly
+            package_provides: subtly
+          - format: deb
+            image: debian:trixie
+            packages: >-
+              build-essential ca-certificates curl git unzip pkg-config
+              patchelf qt6-base-dev qt6-declarative-dev qt6-svg-dev
+              liblayershellqtinterface-dev libpipewire-0.3-dev
+          - format: rpm
+            image: fedora:43
+            packages: >-
+              gcc-c++ make ca-certificates curl-minimal git unzip
+              pkgconf-pkg-config patchelf qt6-qtbase-devel qt6-qtdeclarative-devel
+              qt6-qtsvg-devel layer-shell-qt-devel pipewire-devel
+          - format: archlinux
+            image: archlinux:base-devel
+            packages: >-
+              ca-certificates curl git unzip patchelf qt6-base
+              qt6-declarative qt6-svg qt6-wayland layer-shell-qt pipewire
+    container:
+      image: ${{ matrix.image }}
+    env:
+      BUILD_PACKAGES: ${{ matrix.packages }}
+      SUBTLY_VERSION: ${{ github.event.release.tag_name }}
+      SUBTLY_NEMOTRON: ${{ matrix.nemotron }}
+      SUBTLY_PACKAGE_SUFFIX: ${{ matrix.package_suffix }}
+      SUBTLY_PACKAGE_CONFLICT: ${{ matrix.package_conflict }}
+      SUBTLY_PACKAGE_PROVIDES: ${{ matrix.package_provides }}
+      XMAKE_ROOT: 'y'
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Install Debian build dependencies
+        if: matrix.format == 'deb'
+        run: apt-get update && apt-get install -y --no-install-recommends $BUILD_PACKAGES
+      - name: Install Fedora build dependencies
+        if: matrix.format == 'rpm'
+        run: dnf install -y $BUILD_PACKAGES
+      - name: Install Arch build dependencies
+        if: matrix.format == 'archlinux'
+        run: pacman -Syu --noconfirm --needed $BUILD_PACKAGES
+      - uses: actions/checkout@v4
+      - uses: xmake-io/github-action-setup-xmake@v1
+        with:
+          xmake-version: '3.0.5'
+          actions-cache-folder: '.xmake-cache'
+          actions-cache-key: ${{ matrix.format }}-${{ matrix.package_name }}
+      - name: Build and stage the application
+        run: bash packaging/build.sh stage
+      - name: Create native package
+        uses: docker://ghcr.io/goreleaser/nfpm:v2.48.0
+        with:
+          args: >-
+            package --config packaging/nfpm.yaml
+            --packager ${{ matrix.format }} --target dist/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.package_name }}-${{ matrix.format }}-x86_64
+          path: |
+            dist/*.deb
+            dist/*.rpm
+            dist/*.pkg.tar.zst
+          if-no-files-found: error
+          retention-days: 14

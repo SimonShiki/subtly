@@ -1,0 +1,15 @@
+/build/
+/build-*/
+/.xmake/
+
+compile_commands.json
+.vscode/
+
+.claude/settings.local.json
+
+# PKGBUILD artifacts
+pkg/
+*.pkg.tar.zst
+*.pkg.tar.zst.sig
+/dist/
+/.xmake-cache/
