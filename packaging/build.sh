@@ -14,7 +14,6 @@ if [[ $SUBTLY_VERSION != "$source_version" ]]; then
   echo "Package version must match set_version in xmake.lua ($source_version)" >&2
   exit 1
 fi
-x
 if [[ ${SUBTLY_NEMOTRON:-n} == y ]]; then
   export SUBTLY_PACKAGE_SUFFIX=-nemotron
   export SUBTLY_PACKAGE_CONFLICT=subtly
