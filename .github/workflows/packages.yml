@@ -91,3 +91,21 @@ jobs:
             dist/*.pkg.tar.zst
           if-no-files-found: error
           retention-days: 14
+
+  release:
+    name: Upload packages to release
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - name: Download package artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: dist
+      - name: Attach packages to release
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: ${{ github.event.release.tag_name }}
+          files: dist/**/*
+          fail_on_unmatched_files: true
